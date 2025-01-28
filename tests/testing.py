@@ -8,16 +8,24 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(True, False)  # add assertion here
 
 
-if __name__ == '__main__':
-    unittest.main()
+#testing code for the adjacency matrix - how we printed it and tested it.
 
 if __name__ == "__main__":
     # Path to the CSV file
-    csv_path = "data/distance_matrix.csv"
+    csv_path = "/Users/loriramey/PycharmProjects/WGUPSapp/data/distance_matrix.csv"
 
     # Load the distances
-    distances = load_distance_data(csv_path)
+    try:
+        distances = load_distance_data(csv_path)
 
-    # Print a few entries to verify
-    print(distances["300 State Street"]["10 Main Street"])  # Replace with actual addresses
-    print(distances["10 Main Street"]["300 State Street"])  # Should be symmetric
+        # Print the adjacency matrix for verification
+        for from_address, pairs in distances.items():
+            print(f"{from_address}: {pairs}")
+
+        print(get_distance(distances, "hub", "1060 Dalton Ave S"))  # Should print 7.2
+        print(get_distance(distances, "1060 Dalton Ave S", "hub"))  # Should print 7.2 (symmetric test)
+        print(get_distance(distances, "hub", "nonexistent address"))  # Should print None
+
+
+    except Exception as e:
+        print(f"Error: {e}")

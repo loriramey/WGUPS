@@ -2,73 +2,57 @@
 #Sources for code: Python 3.9.21 documentation found at https://docs.python.org/3.9/index.html
 
 import csv
-from typing import Dict, Any
+from typing import Dict, List, Tuple
 
 # load data from provided Distance Matrix .csv file (stored in data folder)
-def load_distance_data(csv_path):
+def load_distance_data(csv_path: str) -> Dict[str, List[Tuple[str, float]]]:
 
     #return nested dictionary structure with distance matrix as nested dict
-    distances: Dict[str, Dict[str, float]] = {}   #top-level dict - initialize
-
-    #for testing file paths
-    print(f"Attempting to load file: {csv_path}")
+    adjacency_matrix = { }   #top-level dict - initialize
 
     with open(csv_path, mode="r") as csvfile:
         reader = csv.reader(csvfile)
 
-        addresses = [address.strip() for address in next(reader)]  #first row contains address headers
-
-        # FOR TESTING - DELETE
-        print("Addresses (header row):", addresses)
+        raw_headers = next(reader)[1: ]  #first row contains address headers, skip cell A1, skip empty columns
+        addresses = list(filter(None, [header.strip() for header in raw_headers]))
 
         for row in reader:
-            from_address = row[0].strip() #first column contains address headers
-            distances[from_address] = {}   #nested dict - initialize
+            if not row or len(row) < 2:   #handle broken data
+                continue
 
-            #Iterate over distances and build nested dict entries (distances for each address)
-            for col, distance in enumerate(row[1:], start=1):
-                to_address = addresses[col].strip()
+            from_address = row[0].strip()  #first column contains from_address headers
 
-                #FOR TESTING - DELETE
-                print(f"Processing from_address: {from_address}")
-                print(f"Row data: {row[1:]}")
+            distances = []  #initialize interior dict of str address, float distance pairs
 
-                #allows for empty spaces in .csv to not break the code
-                if distance.strip():
-                    distances[from_address][to_address] = {"address": to_address, "distance": float(distance)}  #populate dict
-                else:
-                    distances[from_address][to_address] = {"address": to_address, "distance": 0.0}  #defaults to 0.0 hub
+            for i, value in enumerate(row[1:len(addresses)+1]):  #iterate & fill dict from .csv
+                if value.strip():
+                    to_address = addresses[i]
+                distances.append( (to_address, float(value)) )
 
-    return distances
+            adjacency_matrix[from_address] = distances
 
-#
+        return adjacency_matrix
+
+#FUNCTION: retrieve distance between any two addresses
 def get_distance(distances, from_address, to_address):
 
-    #direct lookup
+   # Direct lookup
+    if from_address in distances:
+        for address, distance in distances[from_address]:
+            if address == to_address:
+                return distance
 
-    # Direct lookup
-    if from_address in distances and to_address in distances[from_address]:
-        return distances[from_address][to_address]["distance"]
+    #Fallback - we can check to_addresses due to data symmetry
+    if to_address in distances:
+        for address, distance in distances[to_address]:
+            if address == from_address:
+                return distance
 
-    # Fallback if direct lookup fails
-    if to_address in distances and from_address in distances[to_address]:
-        return distances[to_address][from_address]["distance"]
-
-    # If both fail, return None
+    # If both fail, return None (no match found)
     return None
 
 
 
-if __name__ == "__main__":
-    # Path to the CSV file
-    csv_path = "/Users/loriramey/PycharmProjects/WGUPSapp/data/distance_matrix.csv"
-
-    # Load the distances
-    distances = load_distance_data(csv_path)
-
-    # Print a few entries to verify
-    print(distances["300 State Street"]["10 Main Street"])  # Replace with actual addresses
-    print(distances["10 Main Street"]["300 State Street"])  # Should be symmetric
 
 
 
