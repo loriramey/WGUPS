@@ -2,6 +2,11 @@
 #Main program execution happens here: orchestration and user interaction
 
 
+#Testing Imports - do we need these?
+from app_wgups.distance_matrix import load_distance_data
+
+#ACTUAL IMPORTS
+
 # initialize data structures - hash table for packages
 # load hardcoded data: adjacency matrix, package info
      #consider calling helper functions here for future improvements
@@ -34,3 +39,14 @@
 #exit program
 
 
+#TESTING
+if __name__ == "__main__":
+    # Path to the CSV file
+    csv_path = "data/distance_matrix.csv"
+
+    # Load the distances
+    distances = load_distance_data(csv_path)
+
+    # Print a few entries to verify
+    print(distances["300 State Street"]["10 Main Street"])  # Replace with actual addresses
+    print(distances["10 Main Street"]["300 State Street"])  # Should be symmetric
