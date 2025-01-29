@@ -11,6 +11,11 @@ from app_wgups.distance_matrix import load_distance_data
 # load hardcoded data: adjacency matrix, package info
      #consider calling helper functions here for future improvements
 # call function to load package data, generate package objects, fill hash table
+
+package_hash = HashTable()
+Package.load_packages_from_csv("data/packages.csv", package_hash)
+
+
 # call function to load distance adjacency data
 # call function to create truck objects
 # call function to run routing algo to determine manifest for each truck +
