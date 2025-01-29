@@ -1,5 +1,6 @@
-#nested dictionary structure to hold WGU Distances data from .csv
+#nested dictionary structure to hold WGU Distances data from provided.csv
 #Sources for code: Python 3.9.21 documentation found at https://docs.python.org/3.9/index.html
+#and W3Schools for data types found at https://www.w3schools.com/python/python_tuples.asp
 
 import csv
 from typing import Dict, List, Tuple
@@ -42,7 +43,7 @@ def get_distance(distances, from_address, to_address):
             if address == to_address:
                 return distance
 
-    #Fallback - we can check to_addresses due to data symmetry
+    #Fallback - we can check to_addresses due to data symmetry & get same info
     if to_address in distances:
         for address, distance in distances[to_address]:
             if address == from_address:
@@ -50,9 +51,3 @@ def get_distance(distances, from_address, to_address):
 
     # If both fail, return None (no match found)
     return None
-
-
-
-
-
-

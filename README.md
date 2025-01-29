@@ -101,8 +101,10 @@ Screenshots of the program output will be stored in the `screenshots/` folder as
 ## License
 This project is for educational purposes and is not intended for commercial use.
 
----
+## Resources Used
+Tracking of sources used in code - see comments in individual files.
+I primarily used Python's online documentation and the W3 Schools site. 
 
+---
 **Author:** Lori Ramey  
-**Email:** lrame29@wgu.edu  
 **Date:** January 2025

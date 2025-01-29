@@ -1,15 +1,15 @@
-#hold hash table for storing package info
-
-# implement creation of custom hash table
+# implement hash table to hold Package objects
 
 class HashTable(object):
     def __init__(self, capacity):
         self.capacity = capacity
 
 
-        #function to insert into hash table
+        #function to insert new data into hash table
 
-        #function to look up from hash table
+        #function to look up data or retrieve from hash table
+
+        #funtion to update individual variables within objects
+        #write this after completing Package class?
 
         #function to delete from hash table
-
