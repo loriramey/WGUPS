@@ -37,7 +37,7 @@ class HashTable:
             self._resize()
 
     # function to look up data or retrieve from hash table via package ID key
-    def search(self, key):
+    def lookup(self, key):
         index = self.hash(key)
         bucket = self.table[index]
 

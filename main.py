@@ -3,6 +3,13 @@
 
 
 #Testing Imports - do we need these?
+from datetime import datetime, timedelta
+
+from app_wgups.distance_matrix import load_distance_data, get_distance
+from app_wgups.hash_table import HashTable
+from app_wgups.package import Package
+from app_wgups.status import PackageStatus
+from app_wgups.truck import Truck
 from app_wgups.distance_matrix import load_distance_data
 from app_wgups.truck import Truck
 from app_wugps.package import Package
@@ -18,16 +25,28 @@ package_hash = HashTable()  # Create a new hash table
 Package.load_package_data("data/packages_data.csv", package_hash)  # Load fresh data
 
 #create trucks with package lists
-truck1 = Truck(1, "09:05")
+# Path to the CSV file
+csv_path = "data/distance_matrix.csv"
+# Load the distances matrix for use by NN algo
+distances = load_distance_data(csv_path)
+
+#LOAD PACKAGE DATA, THEN LOAD TRUCKS WITH PACKAGES
+package_hash = HashTable()  # Create a new hash table
+Package.load_package_data("data/packages_data.csv", package_hash)  # Load fresh data
+
+#create trucks with package lists
+truck1 = Truck(1)
 truck1.load_package(package_hash)
+#STUB - run full delivery
 
-truck2 = Truck(2, "08:00")
+truck2 = Truck(2)
 truck2.load_package(package_hash)
+#STUB - run full delivery
 
-truck3 = Truck(3, 15:00)  #fix this time
+#truck 3 leaves 15min after earliest return of Truck 1 or Truck 2
+truck3 = Truck(3)
+earliest_return_time = Truck.calculate_truck3_departure(truck1, truck2)
 truck3.load_package(package_hash)
-
-
 
 
 total_fleet_travel_distance = truck1.distance_traveled + truck2.distance_traveled + truck3.distance_traveled
@@ -59,3 +78,14 @@ total_fleet_travel_distance = truck1.distance_traveled + truck2.distance_travele
 #exit program
 
 
+#TESTING
+if __name__ == "__main__":
+    # Path to the CSV file
+    csv_path = "data/distance_matrix.csv"
+
+    # Load the distances
+    distances = load_distance_data(csv_path)
+
+    # Print a few entries to verify
+    print(distances["300 State Street"]["10 Main Street"])  # Replace with actual addresses
+    print(distances["10 Main Street"]["300 State Street"])  # Should be symmetric

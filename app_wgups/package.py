@@ -4,7 +4,7 @@ from app_wgups.hash_table import HashTable
 from app_wgups.status import PackageStatus
 
 #define Packages class to create Package objects
-class Package:
+class Packages:
     #define class object variables
     def __init__(self, package_id, address, city, state, zip_code, deadline, weight, notes="", truck=None):
         self.package_id = package_id  # Unique ID for the package, key in hash table
@@ -30,7 +30,7 @@ class Package:
             reader = csv.reader(file)
 
             for row in reader:  #read in a package object
-                package = Package(
+                package = Packages(
                     package_id=int(row[0]),
                     address=row[1],
                     city=row[2],
@@ -59,7 +59,7 @@ class Package:
         self.delivery_time = delivery_time
 
     #update street address & Print confirmation to console
-    def update_address(self, new_address, new_city = None, new_zip=None):
+    def update_address(self, new_address, new_city = None, new_state = None, new_zip=None):
         print(f"Address update: Package {self.package_id} now has address {new_address} - was {self.address}")
         self.address = new_address
         if new_city:
@@ -83,7 +83,10 @@ class Package:
 
     #print human-readable package data when hash table prints
     def __str__(self):
+        #Return a human-readable version of the package info
         return (f"Package {self.package_id}: {self.status} | "
                 f"Deadline: {self.deadline}, Expected delivery: {self.delivery_time} | "
                 f"Truck: {self.truck}, Left hub: {self.departure_time} | "
                 f"Address: {self.address}, {self.city}, {self.state}, {self.zip_code}")
+
+

@@ -8,7 +8,8 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(True, False)  # add assertion here
 
 
-#FOR TESTING ADJACENCY MATRIX
+#testing code for the adjacency matrix - how we printed it and tested it.
+
 if __name__ == "__main__":
     # Path to the CSV file
     csv_path = "/Users/loriramey/PycharmProjects/WGUPSapp/data/distance_matrix.csv"
@@ -28,6 +29,8 @@ if __name__ == "__main__":
 
     except Exception as e:
         print(f"Error: {e}")
+
+
 
 
 
