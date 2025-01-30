@@ -4,20 +4,35 @@
 
 #Testing Imports - do we need these?
 from app_wgups.distance_matrix import load_distance_data
+from app_wgups.truck import Truck
+from app_wugps.package import Package
+from app.hash_table import HashTable()
 
-#ACTUAL IMPORTS
+# Path to the CSV file
+csv_path = "data/distance_matrix.csv"
+# Load the distances matrix for use by NN algo
+distances = load_distance_data(csv_path)
 
-# initialize data structures - hash table for packages
-# load hardcoded data: adjacency matrix, package info
-     #consider calling helper functions here for future improvements
-# call function to load package data, generate package objects, fill hash table
+#LOAD PACKAGE DATA, THEN LOAD TRUCKS WITH PACKAGES
+package_hash = HashTable()  # Create a new hash table
+Package.load_package_data("data/packages_data.csv", package_hash)  # Load fresh data
 
-package_hash = HashTable()
-Package.load_packages_from_csv("data/packages.csv", package_hash)
+#create trucks with package lists
+truck1 = Truck(1, "09:05")
+truck1.load_package(package_hash)
+
+truck2 = Truck(2, "08:00")
+truck2.load_package(package_hash)
+
+truck3 = Truck(3, 15:00)  #fix this time
+truck3.load_package(package_hash)
 
 
-# call function to load distance adjacency data
-# call function to create truck objects
+
+
+total_fleet_travel_distance = truck1.distance_traveled + truck2.distance_traveled + truck3.distance_traveled
+
+
 # call function to run routing algo to determine manifest for each truck +
      #simulate the truck's entire route
      #update delivery times in the Packages objects (hash table)
@@ -44,14 +59,3 @@ Package.load_packages_from_csv("data/packages.csv", package_hash)
 #exit program
 
 
-#TESTING
-if __name__ == "__main__":
-    # Path to the CSV file
-    csv_path = "data/distance_matrix.csv"
-
-    # Load the distances
-    distances = load_distance_data(csv_path)
-
-    # Print a few entries to verify
-    print(distances["300 State Street"]["10 Main Street"])  # Replace with actual addresses
-    print(distances["10 Main Street"]["300 State Street"])  # Should be symmetric
