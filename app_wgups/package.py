@@ -1,12 +1,12 @@
 #this class creates Package objects and stores them in a hash table
 import csv
 import os
-from datetime import datetime
+from datetime import time
 from app_wgups.hash_table import HashTable
 from app_wgups.status import PackageStatus
 
 #define Packages class to create Package objects
-class Packages:
+class Package:
     #define class object variables
     def __init__(self, package_id, address, city, state, zip_code, deadline, weight, notes="", truck=None):
         self.package_id = package_id  # Unique ID for the package, key in hash table
@@ -30,30 +30,23 @@ class Packages:
     def load_package_data(csv_filepath, hash_table):
 
         #ensure filepath to data files in project directory:
-        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Go to WGUPSapp/
-        csv_path = os.path.join(base_dir, "data", csv_filepath)  # ../data/package_data.csv
+        BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # This gets the current script's directory
+        DATA_DIR = os.path.join(BASE_DIR, "..", "data")  # Adjust if needed
 
-        if not os.path.exists(csv_path):
-            raise FileNotFoundError(f"CSV file not found: {csv_path}")
+        CSV_FILE_PATH = os.path.join(DATA_DIR, "packages_data.csv")  # Adjust file name if needed
 
 
-        with open(csv_filepath, mode="r", encoding="utf-8-sig") as file:
+        with open(CSV_FILE_PATH, mode="r", encoding="utf-8-sig") as file:
             reader = csv.reader(file)
 
             for row in reader:  #read in a package object
-<<<<<<< HEAD
-                package = Packages(
-=======
-                deadline = time.fromisoformat(row[5]) if row[5] != "EOD" else time(23, 59)
-
                 package = Package(
->>>>>>> efb0f4e (Wrote routing.py for NN algo and small fixes to other files to address file open error)
                     package_id=int(row[0]),
                     address=row[1],
                     city=row[2],
                     state=row[3],
                     zip_code=row[4],
-                    deadline=row[5],
+                    deadline=time.fromisoformat(row[5].strip()) if row[5].strip() != "EOD" else time(23, 59),
                     weight=int(row[6]),
                     notes=row[7] if len(row) > 7 else "",
                     truck=int(row[8]) if len(row) > 8 and row[8].strip() else None

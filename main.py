@@ -13,7 +13,7 @@ from app_wgups.truck import Truck
 from app_wgups.distance_matrix import load_distance_data
 from app_wgups.truck import Truck
 from app_wugps.package import Package
-from app.hash_table import HashTable()
+from app.hash_table import HashTable
 
 # Path to the CSV file
 csv_path = "data/distance_matrix.csv"

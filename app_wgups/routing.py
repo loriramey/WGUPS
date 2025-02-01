@@ -1,5 +1,5 @@
 #this Nearest Neighbor algorithm determines truck route for deliveries (delivery graphs)
-from datetime import datetime
+from datetime import datetime, time
 from app_wgups.distance_matrix import get_distance
 from app_wgups.package import Package
 from app_wgups.truck import Truck
@@ -18,7 +18,7 @@ class NearestNeighbor:
         self.incoming_manifest = truck.manifest[:]
 
         #IDENTIFY HIGH PRIORITY PACKAGES
-        urgent_packages = [pkg for pkg in self.incoming_manifest if pkg.deadline < datetime.time(10, 30)]
+        urgent_packages = [pkg for pkg in self.incoming_manifest if pkg.deadline < time(10, 30)]
 
         #SET STARTING VERTEX TO HUB, INITIALIZE LOOP VARIABLES
         current_vertex = "hub"
