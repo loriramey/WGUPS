@@ -1,5 +1,7 @@
 #this class creates Package objects and stores them in a hash table
 import csv
+import os
+from datetime import datetime
 from app_wgups.hash_table import HashTable
 from app_wgups.status import PackageStatus
 
@@ -26,11 +28,26 @@ class Packages:
     #define method to load packages from the csv file
     @staticmethod
     def load_package_data(csv_filepath, hash_table):
+
+        #ensure filepath to data files in project directory:
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Go to WGUPSapp/
+        csv_path = os.path.join(base_dir, "data", csv_filepath)  # ../data/package_data.csv
+
+        if not os.path.exists(csv_path):
+            raise FileNotFoundError(f"CSV file not found: {csv_path}")
+
+
         with open(csv_filepath, mode="r", encoding="utf-8-sig") as file:
             reader = csv.reader(file)
 
             for row in reader:  #read in a package object
+<<<<<<< HEAD
                 package = Packages(
+=======
+                deadline = time.fromisoformat(row[5]) if row[5] != "EOD" else time(23, 59)
+
+                package = Package(
+>>>>>>> efb0f4e (Wrote routing.py for NN algo and small fixes to other files to address file open error)
                     package_id=int(row[0]),
                     address=row[1],
                     city=row[2],

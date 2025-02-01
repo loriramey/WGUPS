@@ -9,9 +9,9 @@ from app_wgups.truck import Truck  # Ensure this import is correct
 print("\n📦 LOADING PACKAGE DATA & DISTANCE MATRIX...\n")
 
 package_hash = HashTable()
-Package.load_package_data("/Users/loriramey/PycharmProjects/WGUPSapp/data/packages_data.csv", package_hash)
+Package.load_package_data("/data/packages_data.csv", package_hash)
 
-distance_matrix = load_distance_data("/Users/loriramey/PycharmProjects/WGUPSapp/data/distance_matrix.csv")
+distance_matrix = load_distance_data("/data/distance_matrix.csv")
 
 # 🚛 **STEP 2: Initialize & Load Trucks**
 truck1 = Truck(1)

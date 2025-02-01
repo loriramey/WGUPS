@@ -1,28 +1,52 @@
 #this Nearest Neighbor algorithm determines truck route for deliveries (delivery graphs)
+from datetime import datetime
+from app_wgups.distance_matrix import get_distance
+from app_wgups.package import Package
+from app_wgups.truck import Truck
 
-'''
-Nearest-Neighbor Algorithm:
-INITIALIZE unvisited vertices list = truck’s package delivery locations.
-Select a starting vertex – the packaging company’s hub warehouse’s address.
-ASSIGN this starting vertex as current-visited, C-V.
-	ASSIGN variable min_distance to 25.
-Look for the shortest edge that connects C-V to an unvisited vertex:
-	GET the first unvisited vertex from the list of packages.
-		ASSIGN this as working vertex, W-V.
-	LOOP through the list of unvisited vertices:
-	WHILE there are still vertices in the unvisited list:
-LOOKUP the distance from W-V to C-V.
-COMPARE to variable min_distance
-IF this result < min_distance
-	UPDATE W-V to be next visited, N-V.
-UPDATE min_distance = result
-ELSE
-GET next unvisited vertex from list as W-V.
-		END WHILE LOOP
-ASSIGN N-V (next visited) as current visited, C-V. (Truck goes here.)
-MOVE N-V from the list of unvisited vertices to a queue/list of visited vertices.
-	STORE tuple (vertex, min_distance) in the Visited queue.
-REPEAT until unvisited vertices list size = 0.
+class NearestNeighbor:
+    def __init__(self, truck, distance_matrix):
+        self.truck = truck
+        self.distance_matrix = distance_matrix
+        self.incoming_manifest = []
+        self.optimized_manifest = []
+        self.total_miles = 0.0
 
+    #algorithm logic and implementation
+    def calculate_NN_route(self, truck):
 
-'''
+        self.incoming_manifest = truck.manifest[:]
+
+        #IDENTIFY HIGH PRIORITY PACKAGES
+        urgent_packages = [pkg for pkg in self.incoming_manifest if pkg.deadline < datetime.time(10, 30)]
+
+        #SET STARTING VERTEX TO HUB, INITIALIZE LOOP VARIABLES
+        current_vertex = "hub"
+        next_stop = None
+
+        #Look for the shortest edge that connects C-V to an unvisited vertex:
+        i=0
+        while self.incoming_manifest:
+            nearest_pkg = None
+            min_distance = 100.0  #initialize to high value for each pass
+
+            #loop through truck manifest to find nearest neighbor, but consider priority deadlines
+            for pkg in self.incoming_manifest:
+                check_distance = get_distance(self.distance_matrix, current_vertex, pkg.address)
+
+                if check_distance < min_distance:   #check for nearest neighbor, store if shorter than current minimum
+                    nearest_pkg = pkg
+                    min_distance = check_distance
+                elif check_distance == min_distance:  # how to handle race btw 2 packages, same distance = priority tiebreaker
+                    if pkg in urgent_packages:   #check delivery priority time
+                        nearest_pkg = pkg
+                        min_distance = check_distance
+
+            if nearest_pkg:  #update, move package from unvisited to visited vertices list
+                self.optimized_manifest.append(nearest_pkg)
+                self.incoming_manifest.remove(nearest_pkg)
+
+                current_vertex = nearest_pkg.address #store this as the next starting place for check_distance
+
+        return self.optimized_manifest
+
