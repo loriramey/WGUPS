@@ -4,6 +4,8 @@ from app_wgups.truck import Truck
 from app_wgups.routing import NearestNeighbor
 from app_wgups.distance_matrix import get_distance
 from app_wgups.hash_table import HashTable
+from app_wgups.distance_matrix import load_distance_data  # Ensure the function is available
+
 import os
 
 
@@ -14,24 +16,26 @@ class TestNearestNeighbor(unittest.TestCase):
         """Set up package data, truck, and distance matrix before tests."""
         cls.hash_table = HashTable()
 
-        # Load package data from CSV
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # Locate test directory
-        DATA_DIR = os.path.join(BASE_DIR, "..", "data")  # Adjust if needed
-        CSV_FILE_PATH = os.path.join(DATA_DIR, "packages_data.csv")
+        DATA_DIR = os.path.join(BASE_DIR, "..", "data")  # Move to correct data directory
+        CSV_FILE_PATH = os.path.join(DATA_DIR, "distance_matrix.csv")
 
-        Package.load_package_data(CSV_FILE_PATH, cls.hash_table)
+        # Load distance matrix
+        cls.distance_matrix = load_distance_data(CSV_FILE_PATH)
 
-        # Create Truck 2 and assign packages (example)
+        # Load package data
+        CSV_FILE_PATH_PACKAGES = os.path.join(DATA_DIR, "packages_data.csv")
+        Package.load_package_data(CSV_FILE_PATH_PACKAGES, cls.hash_table)
+
+        # Create Truck 2 and assign packages
         cls.truck = Truck(2)
         cls.truck.manifest = Package.get_packages_by_truck(cls.hash_table, 2)
 
-        # Load distance matrix
-        cls.distance_matrix = os.path.join(DATA_DIR, "distance_matrix.csv")
 
     def test_nearest_neighbor_algorithm(self):
         """Test the NN algorithm's package ordering."""
         nn = NearestNeighbor(self.truck, self.distance_matrix)
-        optimized_manifest = nn.calculate_NN_route(self.truck)
+        optimized_manifest = nn.calculate_NN_route(truck=self.truck)
 
         # Ensure the same number of packages are in optimized_manifest
         self.assertEqual(len(optimized_manifest), len(self.truck.manifest))
