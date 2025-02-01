@@ -27,7 +27,7 @@ class NearestNeighbor:
             #check that distance has been calculated
             distance = get_distance(self.distance_matrix, current_vertex, closest_package.address)
             if distance is None:
-                print(f"WARNING: Distance lookup failed for {current_vertex} → {pkg.address} for {pkg.package_id}")
+                logging.warning(f"WARNING: Distance lookup failed for {current_vertex} → {pkg.address} for {pkg.package_id}")
                 break    #prevents infinite loop
 
             # update all variables, move package from unvisited to visited vertices list

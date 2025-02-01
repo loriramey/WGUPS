@@ -1,6 +1,7 @@
 #this class creates Package objects and stores them in a hash table
 import csv
 import os
+import logging
 from datetime import time
 from app_wgups.hash_table import HashTable
 from app_wgups.status import PackageStatus
@@ -32,7 +33,6 @@ class Package:
         #ensure filepath to data files in project directory:
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # This gets the current script's directory
         DATA_DIR = os.path.join(BASE_DIR, "..", "data")  # Adjust if needed
-
         CSV_FILE_PATH = os.path.join(DATA_DIR, "packages_data.csv")  # Adjust file name if needed
 
 
@@ -70,14 +70,16 @@ class Package:
 
     #update street address & Print confirmation to console
     def update_address(self, new_address, new_city = None, new_state = None, new_zip=None):
-        print(f"Address update: Package {self.package_id} now has address {new_address} - was {self.address}")
+        logging.info(f"Address update: Package {self.package_id} now has address {new_address} - was {self.address}")
         self.address = new_address
         if new_city:
             self.city = new_city
         if new_zip:
             self.zip_code = new_zip
 
+
     #METHODS TO RETRIEVE INFO FROM HASH TABLE OR RESET TABLE
+
     #pull a list of all packages belonging to a particular truck as truck manifest
     @staticmethod
     def get_packages_by_truck(hash_table, truck_id):
@@ -86,17 +88,14 @@ class Package:
     #define way to clear all info upon reset at start of new day
     @staticmethod
     def reset_hash_table(hash_table):
-        """ Completely clears all entries from the hash table. """
         hash_table.table = [[] for _ in range(hash_table.capacity)]
-        hash_table.size = 0  # Reset count
-        hash_table.longest_bucket = 0  # Reset bucket tracking
+        hash_table.size = 0
+        hash_table.longest_bucket = 0
+
 
     #print human-readable package data when hash table prints
     def __str__(self):
-        #Return a human-readable version of the package info
         return (f"Package {self.package_id}: {self.status} | "
                 f"Deadline: {self.deadline}, Expected delivery: {self.delivery_time} | "
                 f"Truck: {self.truck}, Left hub: {self.departure_time} | "
                 f"Address: {self.address}, {self.city}, {self.state}, {self.zip_code}")
-
-
