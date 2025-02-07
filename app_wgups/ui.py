@@ -174,9 +174,14 @@ def display_all_package_statuses(hash_table, trucks, check_time):
             truck_number = pkg.truck
             status_colored = colorize_output(status)
 
-            package_status_list.append(f"Package {pkg.package_id}: {status_colored} on Truck {truck_number}; {delivery_time_label}: {delivery_time}")
+            package_status_list.append((
+                pkg.package_id,
+                f"Package {pkg.package_id}: {status_colored} on Truck {truck_number}; {delivery_time_label}: {delivery_time}"
+            ))
 
-    for package_info in sorted(package_status_list):
+    package_status_list.sort(key=lambda x: x[0] )
+
+    for _, package_info in package_status_list:
         print(package_info)
 
     print("-----------------------------------------------\n")

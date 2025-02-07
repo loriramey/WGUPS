@@ -96,7 +96,7 @@ class Truck:
             if package.deadline != "23:59":
                 deadline_time = package.deadline
                 if delivery_time.time() > deadline_time:
-                    print(f"WARNING! Package {package.address} will be late. | "
+                    print(f"WARNING! Package {package.package_id} at {package.address} will be late. | "
                           f"Projected delivery time is {delivery_time.strftime('%H:%M')}. ")
 
             return delivery_time

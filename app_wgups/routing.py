@@ -1,6 +1,7 @@
 #this Nearest Neighbor algorithm determines truck route for deliveries (delivery graphs)
 from datetime import time
 from app_wgups.distance_matrix import get_distance
+import logging
 
 class NearestNeighbor:
     def __init__(self, truck, distance_matrix):
@@ -27,7 +28,7 @@ class NearestNeighbor:
             #check that distance has been calculated
             distance = get_distance(self.distance_matrix, current_vertex, closest_package.address)
             if distance is None:
-                logging.warning(f"WARNING: Distance lookup failed for {current_vertex} → {pkg.address} for {pkg.package_id}")
+                logging.warning(f"WARNING: Distance lookup failed for {current_vertex} → {closest_package.address} for {closest_package.package_id}")
                 break    #prevents infinite loop
 
             # update all variables, move package from unvisited to visited vertices list

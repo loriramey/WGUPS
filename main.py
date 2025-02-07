@@ -56,8 +56,8 @@ def load_all_data():
     trucks = [Truck(1), Truck(2)]
 
     # Truck 1 departs at 9:10, Truck 2 at 8:05
-    trucks[0].departure_time = datetime.strptime("09:10", "%H:%M")
-    trucks[1].departure_time = datetime.strptime("08:05", "%H:%M")
+    trucks[0].departure_time = datetime.strptime("09:06", "%H:%M")
+    trucks[1].departure_time = datetime.strptime("08:01", "%H:%M")
 
     # Load and optimize Truck 1 & 2's delivery manifests
     for truck in trucks:
@@ -86,7 +86,7 @@ def run_delivery_simulation():
     logging.info(f"Truck 2 returned at {trucks[1].return_time.strftime('%H:%M')}, Distance: {trucks[1].distance_traveled:.2f} miles")
 
     # 🚛 **Handle Truck 3 (Late Package)**
-    logging.info("🚛 Truck 3 Preparing to Depart...\n")
+    logging.info("Truck 3 Preparing to Depart...\n")
 
     # Ensure Trucks 1 & 2 have returned
     for truck in trucks:
@@ -99,6 +99,7 @@ def run_delivery_simulation():
     # Initialize and load Truck 3
     truck3 = Truck(3)
     truck3.load_package(package_hash, truck3_departure_time)
+    trucks.append(truck3)
 
     #HANDLING KNOWN ISSUE: Correct Package 9’s address at 10:20 AM when info is available
     package_9 = package_hash.lookup(9)
