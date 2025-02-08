@@ -90,16 +90,8 @@ Screenshots of the program output will be stored in the `screenshots/` folder as
 - Loading and unloading times are instantaneous.
 - Specific package constraints are adhered to (e.g., special handling requirements, delayed addresses).
 
-## Future Enhancements
-- Implement route optimization using advanced algorithms (e.g., 2-opt or A*).
-- Add a graphical user interface (GUI) for easier interaction.
-- Integrate real-time GPS tracking and traffic data.
-
 ## License
 This project is for educational purposes and is not intended for commercial use.
 
 ---
-
-**Author:** Lori Ramey  
-**Email:** lrame29@wgu.edu  
 **Date:** January 2025
