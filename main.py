@@ -10,7 +10,6 @@ from app_wgups.hash_table import HashTable
 from app_wgups.package import Package
 from app_wgups.truck import Truck
 from app_wgups.ui import user_interface
-from tests.test_filepath import PROJECT_ROOT
 
 #---IMPLEMENT A LOGGING PROCESS TO CATCH ALL ERRORS AND LOGS, PRINT CRITICAL ERRORS TO CONSOLE
 logging.basicConfig(
@@ -29,10 +28,25 @@ console_handler.setFormatter(console_formatter)
 logging.getLogger().addHandler(console_handler)
 
 
-#------------------------MAIN PROGRAM LOGIC------------
+#------------------------MAIN PROGRAM LOGIC------------------------------
 
 # Load and initialize the first 2 trucks of the day
 def load_all_data():
+    """
+    Loads package and distance data, initializes first 2 trucks, and prepares routes.
+    This function:
+      - Loads package data from a CSV file into a hash table.
+      - Loads the distance matrix for route calculations.
+      - Initializes the first two delivery trucks.
+      - Sets their departure times and optimizes their delivery routes using the Nearest Neighbor algorithm.
+    Args:
+        None
+    Returns:
+        tuple: (HashTable, dict, list) containing:
+            - package_hash (HashTable): A hash table storing all package data.
+            - distance_matrix (dict): The distance matrix used for routing.
+            - trucks (list of Truck): The initialized trucks with assigned delivery manifests.
+    """
     global package_hash, distance_matrix, trucks
 
     #Force data to load correctly from the root folder of the project regardless of user operating system
@@ -41,9 +55,9 @@ def load_all_data():
     CSV_FILE_PATH_PACKAGES = os.path.join(DATA_DIR, "packages_data.csv")
     CSV_FILE_PATH_DISTANCES = os.path.join(DATA_DIR, "distance_matrix.csv")
 
-    # Debug print
-    print(f"📂 Looking for data in: {DATA_DIR}")
-    print(f"📄 Checking: {CSV_FILE_PATH_DISTANCES}")
+    # Debug logging
+    logging.info(f"Looking for data in: {DATA_DIR}")
+    logging.info(f"Checking: {CSV_FILE_PATH_DISTANCES}")
 
     # Load package data into hash table
     package_hash = HashTable()
@@ -68,8 +82,25 @@ def load_all_data():
 
     return package_hash, distance_matrix, trucks
 
-# 🚛 **Run the Full Package Delivery Day Simulation**
+
+#--------**Run the Full Package Delivery Day Simulation**------------
+
 def run_delivery_simulation():
+    """
+    Runs the full package delivery simulation for all three trucks.
+    This function:
+      - Loads and initializes package and truck data.
+      - Simulates deliveries for Truck 1 and Truck 2.
+      - Ensures both trucks return to the hub before Truck 3 departs.
+      - Handles special case: Package 9's incorrect address update at 10:20 AM.
+      - Simulates deliveries for Truck 3.
+    Args:
+        None
+    Returns:
+        tuple: (HashTable, list) containing:
+            - package_hash (HashTable): The hash table storing package data.
+            - trucks (list of Truck): The list of all trucks after deliveries are completed.
+    """
     package_hash, distance_matrix, trucks = load_all_data()
 
     # Run Truck 1 & 2 Deliveries
@@ -85,7 +116,7 @@ def run_delivery_simulation():
     logging.info(f"Truck 1 returned at {trucks[0].return_time.strftime('%H:%M')}, Distance: {trucks[0].distance_traveled:.2f} miles")
     logging.info(f"Truck 2 returned at {trucks[1].return_time.strftime('%H:%M')}, Distance: {trucks[1].distance_traveled:.2f} miles")
 
-    # 🚛 **Handle Truck 3 (Late Package)**
+    # **Handle Truck 3 (Late Package)**
     logging.info("Truck 3 Preparing to Depart...\n")
 
     # Ensure Trucks 1 & 2 have returned
@@ -121,9 +152,15 @@ def run_delivery_simulation():
 
 # -----------**MAIN FUNCTION**----------------
 if __name__ == "__main__":
+    """
+    Main execution of the package delivery system.
+    This script:
+      - Runs the full delivery simulation for all trucks.
+      - Launches the user interface after simulation completes.
+    Args:
+        None
+    Returns:
+        None: The function runs until the user exits the program.
+    """
     package_hash, trucks = run_delivery_simulation()  # Runs the delivery process automatically
     user_interface(package_hash, trucks)  # Launches the CLI after simulation completes
-
-
-#OPTIONAL: call reset function to clear all data and load fresh data (.csv)
-#exit program

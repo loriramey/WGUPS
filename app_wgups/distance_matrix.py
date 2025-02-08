@@ -7,7 +7,23 @@ from typing import Dict, List, Tuple
 
 # load data from provided Distance Matrix .csv file (stored in data folder)
 def load_distance_data(csv_path: str) -> Dict[str, List[Tuple[str, float]]]:
+    """
+    Loads a distance matrix from a CSV file and returns it as a nested dictionary.
+    The function reads a CSV file where the first row contains address headers,
+    and subsequent rows contain distances between locations. It returns an adjacency
+    matrix, where each key is a "from_address" and its value is a list of tuples
+    containing ("to_address", distance).
 
+    Args:
+        csv_path (str): The file path to the CSV containing the distance matrix.
+    Returns:
+        Adjacency Matrix - Dict[str, List[Tuple[str, float]]]:
+        A dictionary where keys are addresses and values are lists of (destination_address, distance) tuples.
+    Raises:
+        FileNotFoundError: If the CSV file does not exist.
+        ValueError: If there are invalid or missing distance values in the CSV.
+    """
+    
     #return nested dictionary structure with distance matrix as nested dict
     adjacency_matrix = { }   #top-level dict - initialize
 
@@ -34,9 +50,23 @@ def load_distance_data(csv_path: str) -> Dict[str, List[Tuple[str, float]]]:
 
         return adjacency_matrix
 
-#FUNCTION: retrieve distance between any two addresses
+#Fretrieve distance between any two addresses
 def get_distance(distances, from_address, to_address):
+    """
+    Retrieves the distance between two addresses from a pre-loaded distance matrix.
+    This function first attempts to find the direct distance from `from_address`
+    to `to_address`. If no direct match is found, it checks the `to_address` entry,
+    leveraging data symmetry (i.e., distance from A → B is the same as B → A).
 
+    Args:
+        distances (dict): A nested dictionary structure where each key is a `from_address`,
+                          and its value is a list of tuples containing `(to_address, distance)`.
+        from_address (str): The starting address.
+        to_address (str): The destination address.
+    Returns:
+        float or None: The distance in miles if a match is found; otherwise, returns None.
+    """
+    
    # Direct lookup
     if from_address in distances:
         for address, distance in distances[from_address]:
