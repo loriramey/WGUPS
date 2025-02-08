@@ -18,10 +18,41 @@ trucks = []
 
 #UI INTERFACE CODE - basic CLI interface with dictionary of options
 def user_interface(package_hash, trucks):
+    """
+    Launches the user interface for the WGUPS Package Management System.
 
+    This function presents a command-line interface (CLI) that allows users
+    to interact with the package tracking system. Users can:
+      - Lookup a single package status at a specific time
+      - View all package statuses at a specific time
+      - View all package statuses at the end of the delivery day
+      - Exit the program
+
+    The interface operates in a loop until the user selects the exit option.
+
+    Args:
+        package_hash (HashTable): The hash table storing all package data.
+        trucks (list of Truck): A list of Truck objects representing delivery vehicles.
+
+    Returns:
+        None: Runs the CLI until the user chooses to exit.
+    """
+    
     #helper function for getting user inputs
     def get_valid_package_id():
-        """Prompt the user for a valid package ID and return an integer or None."""
+        """
+        Prompts the user to enter a valid package ID and validates the input.
+
+        This function requests a package ID from the user. It ensures the input is
+        a numeric value and converts it to an integer. If the input is invalid,
+        an error message is displayed, and None is returned.
+
+        Args:
+            None
+
+        Returns:
+            int or None: The package ID as an integer if valid, or None if the input is invalid.
+        """
         package_id = input("\nEnter Package ID#: ").strip()
         if not package_id.isdigit():
             print("ERROR: Package ID must be a number.")
@@ -29,7 +60,19 @@ def user_interface(package_hash, trucks):
         return int(package_id)
 
     def get_valid_time():
-        """Prompt the user for a valid time input and return a parsed datetime object or None."""
+        """
+        Prompts the user to enter a valid time and converts it into a datetime object.
+
+        This function requests a time input from the user in HH:MM (24-hour) format.
+        If the input is invalid, an error message is displayed, and None is returned.
+
+        Args:
+            None
+
+        Returns:
+            datetime or None: A datetime object representing the entered time if valid,
+                              or None if the input is invalid.
+        """
         check_time = input("Enter time to check in 24-hour format, HH:MM: ").strip()
         parsed_time = parse_time(check_time)  # Convert to datetime
         if parsed_time is None:
@@ -37,8 +80,21 @@ def user_interface(package_hash, trucks):
             return None
         return parsed_time
 
-    # 🖨️ Option 1: Print single package status
+    #Option 1: Print single package status
     def print_single_package():
+        """
+        Prints the status of a single package at a user-specified time.
+
+        This function prompts the user to enter a package ID and a time
+        in HH:MM format, then retrieves and displays the status of the
+        specified package at that time.
+
+        Args:
+            None
+
+        Returns:
+            None: Prints the package status directly to the console.
+        """
         package_id = get_valid_package_id()  # Use helper function
         if package_id is None:
             return
@@ -49,24 +105,62 @@ def user_interface(package_hash, trucks):
 
         lookup_and_print_package_by_ID(package_id, package_hash, parsed_time)
 
-    # 🖨️ Option 2: Print all package statuses
+    #Option 2: Print all package statuses
     def print_all_packages():
+        """
+        Prints the status of all packages at a user-specified time.
+
+        This function prompts the user to enter a time in HH:MM format
+        and then retrieves and displays the status of all packages
+        at that specific time.
+
+        Args:
+            None
+
+        Returns:
+            None: Prints the package statuses directly to the console.
+        """
         parsed_time = get_valid_time()
         if parsed_time is None:
             return
         display_all_package_statuses(package_hash, trucks, parsed_time)
 
-    # 🖨️ Option 3: Print end-of-day status
+    #Option 3: Print end-of-day status
     def print_eod_status():
+        """
+        Prints the end-of-day status for all packages.
+
+        This function retrieves and displays the status of all packages
+        as of 18:00 (6:00 PM), showing their final state at the end of the
+        delivery day.
+
+        Args:
+            None
+
+        Returns:
+            None: Prints the package statuses directly to the console.
+        """
         print("\nEOD Status of all Packages:\n")
         display_all_package_statuses(package_hash, trucks, "18:00")
 
-    # 🚪 Option 4: Exit the program
+    #Option 4: Exit the program
     def exit_program():
+        """
+        Terminates the program and prints a farewell message.
+
+        This function gracefully exits the CLI interface by returning False,
+        which signals the main menu loop to terminate.
+
+        Args:
+            None
+
+        Returns:
+            bool: Always returns False to indicate the program should exit.
+        """
         print("\nExiting program. Have an awesome day!\n")
         return False
 
-    # 📋 Menu dictionary mapping options to functions
+    #Menu dictionary mapping options to functions
     menu_options = {
         "1": print_single_package,
         "2": print_all_packages,
@@ -74,7 +168,7 @@ def user_interface(package_hash, trucks):
         "4": exit_program
     }
 
-    # 🖥️ Print the menu in a loop
+    #Print the menu in a loop
     while True:
         print("\n**********************************************")
         print("WELCOME TO THE WGUPS PACKAGE MANAGEMENT SYSTEM")
@@ -97,8 +191,20 @@ def user_interface(package_hash, trucks):
 
 #helper function to turn user input clock time into a datetime object
 def parse_time(user_input):
-    """Converts a user-input time string into a datetime object."""
-    try:
+    """
+    Converts a user-provided time string into a datetime object.
+
+    This function takes a time input in the format "HH:MM" (24-hour clock)
+    and converts it into a datetime object for further processing.
+
+    Args:
+        user_input (str): A time string in "HH:MM" format.
+
+    Returns:
+        datetime or None: A datetime object representing the parsed time if successful,
+        or None if the input format is invalid.
+    """
+    try:   #convert user input into date-time object
         return datetime.strptime(user_input, "%H:%M")
     except ValueError:
         print("X ERROR: Invalid time format. Please enter a valid time in HH:MM (24-hour).")
@@ -107,7 +213,22 @@ def parse_time(user_input):
 
 #helper function for determining package delivery status
 def get_package_status_at_time(package, parsed_time):
+    """
+    Determines the status of a package at a specific time.
 
+    This function checks whether a package is still at the hub, en route for delivery,
+    or has been delivered based on its departure and delivery times.
+
+    Args:
+        package (Package): The package object whose status needs to be determined.
+        parsed_time (datetime): The specific time to check the package status.
+
+    Returns:
+        str: The status of the package at the given time. Possible values:
+            - "AT HUB" (if the package has not yet departed)
+            - "EN ROUTE" (if the package has left the hub but not yet been delivered)
+            - "DELIVERED" (if the package has already been delivered)
+    """
     if package.departure_time and parsed_time < package.departure_time:
         status = "AT HUB"
     elif package.delivery_time and parsed_time >= package.delivery_time:
@@ -118,11 +239,23 @@ def get_package_status_at_time(package, parsed_time):
     return status
 
 
-#for Task 2 diretions part B: LOOKUP FUNCTION by PACKAGE ID
+#for Task 2 directions, part B: LOOKUP FUNCTION by PACKAGE ID
 #helper function - lookup single package by id
 def lookup_and_print_package_by_ID(package_id, hash_table, parsed_time):
-    print(f"🔍 DEBUG: Looking up package {package_id}")  # New debug message
+    """
+    Retrieves and prints the status of a package based on its ID and a given time.
 
+    This function looks up a package in the hash table using the provided package ID,
+    determines its status at the specified time, and prints relevant package details.
+
+    Args:
+        package_id (int): The unique ID of the package to look up.
+        hash_table (HashTable): The hash table containing package data.
+        parsed_time (datetime): The time at which to check the package status.
+
+    Returns:
+        None: The function prints the package details to the console.
+    """
     package = hash_table.lookup(int(package_id))
     if not package:
         return
@@ -146,9 +279,26 @@ def lookup_and_print_package_by_ID(package_id, hash_table, parsed_time):
     print("------------------------------------------------\n")
 
 
+
 #helper function - lookup all packages by time and return status + time, and mileage for all trucks
 def display_all_package_statuses(hash_table, trucks, check_time):
+    """
+    Displays the status of all packages at a specified time.
 
+    This function retrieves and prints the status of all packages based on their
+    delivery progress at the given time. It also calculates and displays the total
+    mileage of all trucks.
+
+    Args:
+        hash_table (HashTable): The hash table storing package data.
+        trucks (list): A list of Truck objects to retrieve mileage information.
+        check_time (str or datetime): The time to check package statuses. Accepts
+                                      a string in HH:MM format or a datetime object.
+
+    Returns:
+        None: The function prints the package statuses and total truck mileage
+              to the console.
+    """
     #validate whether check_time is already a date-time object or a string
     if isinstance(check_time, str):
         parsed_time = parse_time(check_time)
@@ -191,6 +341,19 @@ def display_all_package_statuses(hash_table, trucks, check_time):
 
 #helper function - reset all data to start a new day
 def reset_day(package_hash, trucks):
+    """
+    Resets all package and truck data to start a new delivery day.
+
+    This function clears the package hash table and resets all truck attributes,
+    including their manifests, delivery logs, distance traveled, and current locations.
+
+    Args:
+        package_hash (HashTable): The hash table storing package data.
+        trucks (list): A list of Truck objects that need to be reset.
+
+    Returns:
+        None: This function modifies the package hash table and truck objects in place.
+    """
     package_hash.clear()
 
     for truck in trucks:
@@ -206,11 +369,24 @@ def reset_day(package_hash, trucks):
 
 #helper function: color code any results printed to screen based on package status
 def colorize_output(status):
-    colors = {
-        "AT HUB": "\033[91m",  # Red
-        "EN ROUTE": "\033[93m",  # Yellow
-        "DELIVERED": "\033[92m",  # Green
-        "RESET": "\033[0m"  # Reset color formatting
-    }
-    return f"{colors.get(status, colors['RESET'])}{status}{colors['RESET']}"
+    """
+    Applies color formatting to package status output in the terminal.
 
+    This function assigns ANSI color codes to different package statuses
+    to enhance readability in the console.
+
+    Args:
+        status (str): The package status, expected values are "AT HUB",
+                      "EN ROUTE", or "DELIVERED".
+
+    Returns:
+        str: The status string wrapped in the appropriate ANSI color code.
+    """
+    colors = {
+    "AT HUB": "\033[91m",  # Red
+    "EN ROUTE": "\033[93m",  # Yellow
+    "DELIVERED": "\033[92m",  # Green
+    "RESET": "\033[0m"  # Reset color formatting
+    }
+
+    return f"{colors.get(status, colors['RESET'])}{status}{colors['RESET']}"

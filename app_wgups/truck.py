@@ -10,10 +10,32 @@ from app_wgups.status import PackageStatus
 
 import logging
 
+
 #create truck objects and methods to support truck movement and delivery actions
 class Truck:
     #define class object variables
     def __init__(self, truck_id):
+        """
+        Represents a delivery truck used in the WGUPS package delivery system.
+        This class models a truck with attributes for tracking its deliveries,
+        location, speed, and cargo capacity.
+
+        Attributes:
+            truck_id (int): Unique identifier for the truck.
+            capacity (int): Maximum number of packages the truck can carry.
+            speed (float): Speed of the truck in miles per hour.
+            distance_traveled (float): Total miles traveled by the truck.
+            departure_time (datetime or None): The time the truck departs from the hub.
+            current_location (str): The truck's current location (default: "hub").
+            current_time (datetime or None): The current simulation time for the truck.
+            manifest (list): List of packages assigned to the truck.
+            return_time (datetime or None): The time the truck returns to the hub.
+            delivery_log (list): Log of deliveries made by the truck.
+        Args:
+            truck_id (int): The unique ID assigned to the truck.
+        Returns:
+            None
+        """
         self.truck_id = truck_id
         self.capacity = 16
         self.speed = 18.0  #mph
@@ -27,6 +49,22 @@ class Truck:
 
     #method to load packages onto the truck - for each truck & update package departure time & status
     def load_package(self, package_hash, departure_time):
+        """
+        Loads packages onto the truck and updates their departure status.
+        This method retrieves all packages assigned to the truck from the hash table,
+        verifies that the truck does not exceed its capacity, and updates the
+        status of each package to "EN ROUTE" with a recorded departure time.
+
+        Args:
+            package_hash (HashTable): The hash table storing package data.
+            departure_time (str or datetime): The time the truck departs the hub.
+                                              Accepts a string in "HH:MM" format
+                                              or a datetime object.
+        Returns:
+            list: A list of Package objects loaded onto the truck.
+        Raises:
+            ValueError: If the number of assigned packages exceeds the truck's capacity.
+        """
         delivery_list = Package.get_packages_by_truck(package_hash, self.truck_id)
 
         if len(delivery_list) > self.capacity:
@@ -54,7 +92,19 @@ class Truck:
 
     #method to determine best route for delivery via NN algo
     def calculate_delivery_route(self, distance_matrix):
+        """
+        Optimizes the truck's delivery route using the Nearest Neighbor algorithm.
+        This method determines the most efficient order of deliveries based on
+        distance calculations. If no packages are assigned to the truck,
+        a log entry is recorded and no optimization is performed.
 
+        Args:
+            distance_matrix (dict): A nested dictionary representing distance
+                                    values between delivery locations.
+        Returns:
+            list: The optimized list of Package objects, reordered for delivery efficiency.
+        """
+    
         if not self.manifest:  #debugging
             logging.info(f"Truck {self.truck_id} has no packages to deliver.")
             return
@@ -69,14 +119,33 @@ class Truck:
 
     #helper method to update specific delivery time for packages when delivered
     def calculate_delivery_time(self, package, distance_matrix):
+        """
+        Calculates and updates the expected delivery time for a package.
+
+        This method determines how long it will take the truck to reach
+        the package’s destination from its current location. If the truck
+        is already at the delivery location, the package is marked as
+        delivered immediately. If the truck must travel, the method
+        calculates travel time based on distance and speed, then updates
+        the package’s delivery time accordingly.
+
+        If a package has a deadline and will be delivered late, a warning
+        message is displayed.
+
+        Args:
+            package (Package): The package to be delivered.
+            distance_matrix (dict): A nested dictionary representing distance
+                                    values between delivery locations.
+        Returns:
+            datetime: The expected delivery time for the package, or None
+                      if distance data is unavailable.
+        """
         if self.current_location is None:  #error handling if no location
             logging.error(f"Truck {self.truck_id} has no current location set")
             raise ValueError(f"Truck {self.truck_id} has no current location set!")
 
         #handle cases where truck is already at proper location to deliver
         if self.current_location == package.address:
-            #FOR TESTING
-            logging.info(f"Package {package.package_id} is already at {package.address}. Delivered instantly!")
             package.update_delivery_time(self.current_time)
             return package.delivery_time
 
@@ -104,6 +173,24 @@ class Truck:
 
     #method to "deliver" package by updating package status & delivery time, move from truck manifest to log
     def deliver_package(self, package, distance_matrix):
+        """
+        Delivers a package by updating its status, logging delivery time, and
+        updating the truck's manifest and movement.
+
+        This method simulates the process of delivering a package:
+        - Checks if the truck has any packages left; if not, returns to the hub.
+        - Handles known incorrect address cases (e.g., Package 9 before 10:20 AM).
+        - Calls `calculate_delivery_time` to determine when the package was delivered.
+        - Updates package status to DELIVERED and records the delivery in the truck log.
+        - Updates truck's location and total distance traveled.
+        - Implements error handling for missing distance data and ensures delivery time is set.
+
+        Args:
+            package (Package): The package object to be delivered.
+            distance_matrix (dict): The distance matrix used to calculate travel distances.
+        Returns:
+            None: Modifies package and truck attributes in place.
+        """
         if not self.manifest:
             logging.info(f"Truck {self.truck_id} has no more packages to deliver. Returning to hub.")
             self.return_to_hub(distance_matrix)
@@ -138,7 +225,7 @@ class Truck:
             #FOR TESTING & DEBUGGING
             # Get distance from current location to package destination
             if distance is None:  # If distance is missing in the adjacency matrix
-                logging.error(f"ERROR: Truck {self.truck_id} Distance from {self.current_location} to {package.address} not found")
+                logging.warning(f"WARNING: Truck {self.truck_id} Distance from {self.current_location} to {package.address} not found")
                 logging.info(f"Skipping Package {package.package_id} and moving to next package.")
                 return  # Skip delivery if distance is undefined
 
@@ -170,6 +257,19 @@ class Truck:
 
     #method to send truck back to hub when manifest is empty, record final return time
     def return_to_hub(self, distance_matrix):
+        """
+        Sends the truck back to the hub when all packages have been delivered.
+        This function calculates the distance from the truck's current location
+        to the hub, determines the time required to travel that distance, and
+        updates the truck's return time. It also logs relevant details such as
+        the total distance traveled and the number of packages delivered.
+
+        Args:
+            distance_matrix (dict): The distance matrix used to calculate distances
+                                    between locations.
+        Returns:
+            datetime: The time the truck returns to the hub.
+        """
         if not self.manifest:  #if manifest is empty
             distance_to_hub = get_distance(distance_matrix, self.current_location, "hub")                             # calculate distance from last stop to hub
             travel_time = timedelta(minutes=(distance_to_hub / self.speed) * 60)
@@ -184,8 +284,22 @@ class Truck:
 
             return self.return_time
 
+
     #helper method to determine time for truck 3 to leave
     def calculate_truck3_departure(truck1, truck2, distance_matrix):
+        """
+        Determines the departure time for Truck 3 based on when the first two trucks return.
+        This function ensures that Truck 3 does not leave until at least one of the first
+        two trucks has returned to the hub. It calculates the earliest return time between
+        Truck 1 and Truck 2 and sets Truck 3's departure time to 15 minutes after that.
+
+        Args:
+            truck1 (Truck): The first delivery truck.
+            truck2 (Truck): The second delivery truck.
+            distance_matrix (dict): The distance matrix used to calculate travel times.
+        Returns:
+            datetime: The calculated departure time for Truck 3.
+        """
         if truck1.return_time is None:     #make sure trucks have return times
             truck1.return_to_hub(distance_matrix)
         if truck2.return_time is None:
