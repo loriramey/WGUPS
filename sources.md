@@ -8,7 +8,7 @@
 ## Nearest Neighbor Algorithm
 - W3 Schools. (n.d.). DSA Greedy Algorithms. W3 Schools. [https://www.w3schools.com/dsa/dsa_ref_greedy.php](https://www.w3schools.com/dsa/dsa_ref_greedy.php)
 
-## Python Documentation
+## Python Documentation General
 - Python Software Foundation. (n.d.). Python documentation. [https://docs.python.org/3/](https://docs.python.org/3/)
 
 ## Distance Matrix Concepts

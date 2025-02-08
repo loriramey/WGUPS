@@ -23,62 +23,26 @@ The program uses a **Nearest Neighbor Algorithm** combined with a custom hash ta
 ## Python Version Compatibility
 This project is tested and designed for Python 3.9.x. Please ensure your environment supports Python 3.9 to avoid compatibility issues.
 
-## File Structure
-```
-PythonProject/
-├── .venv/                 # Virtual environment
-├── app_wgups/             # Folder for program modules
-│   ├── __init__.py        # Makes this a package
-│   ├── hash_table.py      # Hash table implementation
-│   ├── packages.py        # Package class
-│   ├── routing.py         # Nearest Neighbor algorithm
-│   ├── trucks.py          # Truck class
-│   └── ui.py              # User interface functions
-├── data/                  # Folder for input data files
-│   ├── distances.csv
-│   ├── packages.csv
-├── screenshots/           # Screenshots for the project report
-├── tests/                 # Folder for test cases
-│   ├── __init__.py
-│   └── main.py            # Test cases
-├── README.md              # Project documentation
-└── main.py                # Entry point of the program
-```
-
-## How to Run
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd WGUPSapp
-   ```
-3. Set up the virtual environment:
-   ```bash
-   python3 -m venv .venv
-   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-   ```
-4. Install any necessary dependencies (if any):
-   ```bash
-   pip install -r requirements.txt
-   ```
-5. Run the program:
-   ```bash
-   python main.py
-   ```
-
 ## User Interface
 The program provides a menu-driven interface with the following options:
-1. View the status of all packages at a specific time.
-2. View the status of a single package by ID.
-3. View the total mileage traveled by all trucks.
+1. View the status of a single package by ID and time.
+2. View the status of all packages by time + total truck mileage.
+3. View the all package status + total truck mileage at end of day.
 4. Exit the program.
 
 ## Screenshots
 Screenshots of the program output will be stored in the `screenshots/` folder as required by the project.
 
-## Technical Details
+# Sources and References
+- Garg, P. (2024). Basics of hash tables. _Hackerearth_. [https://www.hackerearth.com/practice/data-structures/hash-tables/basics-of-hash-tables/tutorial/](https://www.hackerearth.com/practice/data-structures/hash-tables/basics-of-hash-tables/tutorial/)
+- Python Software Foundation. (n.d.). Datetime. _Python Documentation._ [https://docs.python.org/3/library/datetime.html#module-datetime](https://docs.python.org/3/library/datetime.html#module-datetime)
+- Western Governors University. (n.d.) _C 950 Data structures and algorithms II._ ZyBooks.  https://learn.zybooks.com/zybook/WGUC950Template2023/chapter/6/section/1
+- W3 Schools. (n.d.) Python DSA Hash Tables. _W3 Schools._ https://www.w3schools.com/dsa/dsa_theory_hashtables.php
+- W3 Schools. (n.d.).Python DSA Greedy Algorithms. _W3 Schools._ [https://www.w3schools.com/dsa/dsa_ref_greedy.php](https://www.w3schools.com/dsa/dsa_ref_greedy.php)
+- W3 Schools. (n.d.) Python Tuples. _W3 Schools_  [https://www.w3schools.com/python/python_tuples.asp](https://www.w3schools.com/python/python_tuples.asp)
+
+
+# Technical Details
 ### Algorithm
 - The **Nearest Neighbor Algorithm** selects the next closest delivery location from the current position, ensuring efficient routing. It runs with a time complexity of **O(n²)** in the worst case.
 
@@ -95,6 +59,6 @@ Screenshots of the program output will be stored in the `screenshots/` folder as
 
 ## License
 This project is for educational purposes and is not intended for commercial use.
-
 ---
 **Date:** January 2025
+**Author:** Lori Ramey
