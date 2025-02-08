@@ -20,6 +20,9 @@ The program uses a **Nearest Neighbor Algorithm** combined with a custom hash ta
   - Distance matrix (CSV file)
   - Map of Salt Lake City Downtown
 
+## Python Version Compatibility
+This project is tested and designed for Python 3.9.x. Please ensure your environment supports Python 3.9 to avoid compatibility issues.
+
 ## File Structure
 ```
 PythonProject/
@@ -49,7 +52,7 @@ PythonProject/
    ```
 2. Navigate to the project directory:
    ```bash
-   cd PythonProject
+   cd WGUPSapp
    ```
 3. Set up the virtual environment:
    ```bash
