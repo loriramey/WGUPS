@@ -326,7 +326,7 @@ def display_all_package_statuses(hash_table, trucks, check_time):
 
             package_status_list.append((
                 pkg.package_id,
-                f"Package {pkg.package_id}: {status_colored} on Truck {truck_number}; {delivery_time_label}: {delivery_time}"
+                f"Package {pkg.package_id}: {status_colored} on Truck {truck_number}; {delivery_time_label}: {delivery_time} to {address}"
             ))
 
     package_status_list.sort(key=lambda x: x[0] )

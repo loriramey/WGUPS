@@ -1,4 +1,4 @@
-#author info: Student ID 010899261, Loretta ("lori") Ramey
+#author info: Student ID 010899261, Loretta ("Lori") Ramey
 #built in Python 9.3.21
 #Main program execution happens here: orchestration of events, initialize UI
 
@@ -164,3 +164,4 @@ if __name__ == "__main__":
     """
     package_hash, trucks = run_delivery_simulation()  # Runs the delivery process automatically
     user_interface(package_hash, trucks)  # Launches the CLI after simulation completes
+
