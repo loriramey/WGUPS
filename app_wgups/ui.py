@@ -211,7 +211,7 @@ def parse_time(user_input):
         return None
 
 
-#helper function for determining package delivery status
+#helper function for looking up package delivery status
 def get_package_status_at_time(package, parsed_time):
     """
     Determines the status of a package at a specific time.
@@ -266,7 +266,9 @@ def lookup_and_print_package_by_ID(package_id, hash_table, parsed_time):
 
     #package9 has wrong address till 10:20am
     status = get_package_status_at_time(package, parsed_time)
-    address = "300 State St (Incorrect)" if package.package_id == 9 and parsed_time < datetime.strptime("10:20", "%H:%M") else package.address
+    address = "300 State St (Incorrect)" if (package.package_id == 9
+            and parsed_time < datetime.strptime("10:20", "%H:%M")) \
+            else package.address
 
     #print to screen
     print(f"\nPackage {package_id} Status at {parsed_time.strftime('%H:%M')}")

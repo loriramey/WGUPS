@@ -1,106 +1,106 @@
-2025-02-10 09:56:03,127 [INFO] Looking for data in: /Users/loriramey/PycharmProjects/WGUPSapp/data
-2025-02-10 09:56:03,127 [INFO] Checking: /Users/loriramey/PycharmProjects/WGUPSapp/data/distance_matrix.csv
-2025-02-10 09:56:03,128 [INFO] Optimizing route for Truck 1...
-2025-02-10 09:56:03,128 [INFO] Optimizing route for Truck 2...
-2025-02-10 09:56:03,128 [INFO] Truck 1 & 2 loaded and optimized.
-2025-02-10 09:56:03,128 [INFO] Running deliveries for Truck 1...
-2025-02-10 09:56:03,128 [DEBUG] Before Delivery | Truck 1 Package 20 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 09:12:40
-2025-02-10 09:56:03,129 [INFO] Truck 1 Delivered Package 20 at 09:12 | (Miles Traveled: 2.00) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,129 [DEBUG] Before Delivery | Truck 1 Package 31 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 09:18:00
-2025-02-10 09:56:03,129 [INFO] Truck 1 Delivered Package 31 at 09:18 | (Miles Traveled: 3.60) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,129 [DEBUG] Before Delivery | Truck 1 Package 17 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 09:20:00
-2025-02-10 09:56:03,129 [INFO] Truck 1 Delivered Package 17 at 09:20 | (Miles Traveled: 4.20) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,129 [DEBUG] Before Delivery | Truck 1 Package 6 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 09:24:20
-2025-02-10 09:56:03,129 [INFO] Truck 1 Delivered Package 6 at 09:24 | (Miles Traveled: 5.50) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,129 [DEBUG] Before Delivery | Truck 1 Package 21 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 09:35:00
-2025-02-10 09:56:03,129 [INFO] Truck 1 Delivered Package 21 at 09:35 | (Miles Traveled: 8.70) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,129 [DEBUG] Before Delivery | Truck 1 Package 1 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 09:41:20
-2025-02-10 09:56:03,129 [INFO] Truck 1 Delivered Package 1 at 09:41 | (Miles Traveled: 10.60) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,129 [DEBUG] Before Delivery | Truck 1 Package 29 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 09:50:40
-2025-02-10 09:56:03,129 [INFO] Truck 1 Delivered Package 29 at 09:50 | (Miles Traveled: 13.40) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,129 [DEBUG] Before Delivery | Truck 1 Package 16 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 10:07:20
-2025-02-10 09:56:03,129 [INFO] Truck 1 Delivered Package 16 at 10:07 | (Miles Traveled: 18.40) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,129 [DEBUG] Before Delivery | Truck 1 Package 25 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 10:18:40
-2025-02-10 09:56:03,129 [INFO] Truck 1 Delivered Package 25 at 10:18 | (Miles Traveled: 21.80) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,129 [DEBUG] Before Delivery | Truck 1 Package 34 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 10:30:00
-2025-02-10 09:56:03,129 [INFO] Truck 1 Delivered Package 34 at 10:30 | (Miles Traveled: 25.20) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,129 [DEBUG] Before Delivery | Truck 1 Package 7 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 10:46:40
-2025-02-10 09:56:03,129 [INFO] Truck 1 Delivered Package 7 at 10:46 | (Miles Traveled: 30.20) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,129 [DEBUG] Before Delivery | Truck 1 Package 8 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 11:04:20
-2025-02-10 09:56:03,129 [INFO] Truck 1 Delivered Package 8 at 11:04 | (Miles Traveled: 35.50) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,129 [INFO] Truck 1 returned to hub at 11:29, total distance traveled: 35.50 miles.
-2025-02-10 09:56:03,129 [INFO] Truck delivered 12 packages.
-2025-02-10 09:56:03,129 [INFO] [(20, datetime.datetime(1900, 1, 1, 9, 12, 40)), (31, datetime.datetime(1900, 1, 1, 9, 18)), (17, datetime.datetime(1900, 1, 1, 9, 20)), (6, datetime.datetime(1900, 1, 1, 9, 24, 20)), (21, datetime.datetime(1900, 1, 1, 9, 35)), (1, datetime.datetime(1900, 1, 1, 9, 41, 20)), (29, datetime.datetime(1900, 1, 1, 9, 50, 40)), (16, datetime.datetime(1900, 1, 1, 10, 7, 20)), (25, datetime.datetime(1900, 1, 1, 10, 18, 40)), (34, datetime.datetime(1900, 1, 1, 10, 30)), (7, datetime.datetime(1900, 1, 1, 10, 46, 40)), (8, datetime.datetime(1900, 1, 1, 11, 4, 20))]
-2025-02-10 09:56:03,129 [INFO] Running deliveries for Truck 2...
-2025-02-10 09:56:03,129 [DEBUG] Before Delivery | Truck 2 Package 14 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 08:07:20
-2025-02-10 09:56:03,129 [INFO] Truck 2 Delivered Package 14 at 08:07 | (Miles Traveled: 1.90) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,129 [DEBUG] Before Delivery | Truck 2 Package 15 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 08:14:00
-2025-02-10 09:56:03,129 [INFO] Truck 2 Delivered Package 15 at 08:14 | (Miles Traveled: 3.90) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,129 [DEBUG] Before Delivery | Truck 2 Package 19 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 08:31:20
-2025-02-10 09:56:03,129 [INFO] Truck 2 Delivered Package 19 at 08:31 | (Miles Traveled: 9.10) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,129 [DEBUG] Before Delivery | Truck 2 Package 40 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 08:37:00
-2025-02-10 09:56:03,129 [INFO] Truck 2 Delivered Package 40 at 08:37 | (Miles Traveled: 10.80) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,129 [DEBUG] Before Delivery | Truck 2 Package 37 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 08:51:40
-2025-02-10 09:56:03,129 [INFO] Truck 2 Delivered Package 37 at 08:51 | (Miles Traveled: 15.20) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,129 [DEBUG] Before Delivery | Truck 2 Package 30 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 08:55:00
-2025-02-10 09:56:03,129 [INFO] Truck 2 Delivered Package 30 at 08:55 | (Miles Traveled: 16.20) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,129 [DEBUG] Before Delivery | Truck 2 Package 3 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 08:57:00
-2025-02-10 09:56:03,129 [INFO] Truck 2 Delivered Package 3 at 08:57 | (Miles Traveled: 16.80) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,129 [DEBUG] Before Delivery | Truck 2 Package 38 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 09:00:20
-2025-02-10 09:56:03,129 [INFO] Truck 2 Delivered Package 38 at 09:00 | (Miles Traveled: 17.80) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,129 [DEBUG] Before Delivery | Truck 2 Package 13 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 09:11:00
-2025-02-10 09:56:03,129 [INFO] Truck 2 Delivered Package 13 at 09:11 | (Miles Traveled: 21.00) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,129 [DEBUG] Before Delivery | Truck 2 Package 36 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 09:24:20
-2025-02-10 09:56:03,129 [INFO] Truck 2 Delivered Package 36 at 09:24 | (Miles Traveled: 25.00) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,129 [DEBUG] Before Delivery | Truck 2 Package 18 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 09:37:40
-2025-02-10 09:56:03,129 [INFO] Truck 2 Delivered Package 18 at 09:37 | (Miles Traveled: 29.00) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,129 [DEBUG] Before Delivery | Truck 2 Package 39 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 10:06:20
-2025-02-10 09:56:03,129 [INFO] Truck 2 Delivered Package 39 at 10:06 | (Miles Traveled: 37.60) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,129 [INFO] Truck 2 returned to hub at 10:42, total distance traveled: 37.60 miles.
-2025-02-10 09:56:03,129 [INFO] Truck delivered 12 packages.
-2025-02-10 09:56:03,129 [INFO] [(14, datetime.datetime(1900, 1, 1, 8, 7, 20)), (15, datetime.datetime(1900, 1, 1, 8, 14)), (19, datetime.datetime(1900, 1, 1, 8, 31, 20)), (40, datetime.datetime(1900, 1, 1, 8, 37)), (37, datetime.datetime(1900, 1, 1, 8, 51, 40)), (30, datetime.datetime(1900, 1, 1, 8, 55)), (3, datetime.datetime(1900, 1, 1, 8, 57)), (38, datetime.datetime(1900, 1, 1, 9, 0, 20)), (13, datetime.datetime(1900, 1, 1, 9, 11)), (36, datetime.datetime(1900, 1, 1, 9, 24, 20)), (18, datetime.datetime(1900, 1, 1, 9, 37, 40)), (39, datetime.datetime(1900, 1, 1, 10, 6, 20))]
-2025-02-10 09:56:03,129 [INFO] Truck 1 returned at 11:29, Distance: 35.50 miles
-2025-02-10 09:56:03,129 [INFO] Truck 2 returned at 10:42, Distance: 37.60 miles
-2025-02-10 09:56:03,129 [INFO] Truck 3 Preparing to Depart...
+2025-02-10 10:16:11,826 [INFO] Looking for data in: /Users/loriramey/PycharmProjects/WGUPSapp/data
+2025-02-10 10:16:11,826 [INFO] Checking: /Users/loriramey/PycharmProjects/WGUPSapp/data/distance_matrix.csv
+2025-02-10 10:16:11,828 [INFO] Optimizing route for Truck 1...
+2025-02-10 10:16:11,828 [INFO] Optimizing route for Truck 2...
+2025-02-10 10:16:11,828 [INFO] Truck 1 & 2 loaded and optimized.
+2025-02-10 10:16:11,828 [INFO] Running deliveries for Truck 1...
+2025-02-10 10:16:11,828 [DEBUG] Before Delivery | Truck 1 Package 20 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 09:12:40
+2025-02-10 10:16:11,828 [INFO] Truck 1 Delivered Package 20 at 09:12 | (Miles Traveled: 2.00) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,828 [DEBUG] Before Delivery | Truck 1 Package 31 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 09:18:00
+2025-02-10 10:16:11,828 [INFO] Truck 1 Delivered Package 31 at 09:18 | (Miles Traveled: 3.60) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,828 [DEBUG] Before Delivery | Truck 1 Package 17 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 09:20:00
+2025-02-10 10:16:11,828 [INFO] Truck 1 Delivered Package 17 at 09:20 | (Miles Traveled: 4.20) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,828 [DEBUG] Before Delivery | Truck 1 Package 6 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 09:24:20
+2025-02-10 10:16:11,828 [INFO] Truck 1 Delivered Package 6 at 09:24 | (Miles Traveled: 5.50) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,828 [DEBUG] Before Delivery | Truck 1 Package 21 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 09:35:00
+2025-02-10 10:16:11,828 [INFO] Truck 1 Delivered Package 21 at 09:35 | (Miles Traveled: 8.70) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,828 [DEBUG] Before Delivery | Truck 1 Package 1 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 09:41:20
+2025-02-10 10:16:11,828 [INFO] Truck 1 Delivered Package 1 at 09:41 | (Miles Traveled: 10.60) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,828 [DEBUG] Before Delivery | Truck 1 Package 29 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 09:50:40
+2025-02-10 10:16:11,828 [INFO] Truck 1 Delivered Package 29 at 09:50 | (Miles Traveled: 13.40) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,828 [DEBUG] Before Delivery | Truck 1 Package 34 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 10:07:20
+2025-02-10 10:16:11,828 [INFO] Truck 1 Delivered Package 34 at 10:07 | (Miles Traveled: 18.40) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,828 [DEBUG] Before Delivery | Truck 1 Package 25 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 10:18:40
+2025-02-10 10:16:11,828 [INFO] Truck 1 Delivered Package 25 at 10:18 | (Miles Traveled: 21.80) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,828 [DEBUG] Before Delivery | Truck 1 Package 16 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 10:30:00
+2025-02-10 10:16:11,828 [INFO] Truck 1 Delivered Package 16 at 10:30 | (Miles Traveled: 25.20) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,828 [DEBUG] Before Delivery | Truck 1 Package 7 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 10:46:40
+2025-02-10 10:16:11,828 [INFO] Truck 1 Delivered Package 7 at 10:46 | (Miles Traveled: 30.20) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,828 [DEBUG] Before Delivery | Truck 1 Package 8 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 11:04:20
+2025-02-10 10:16:11,828 [INFO] Truck 1 Delivered Package 8 at 11:04 | (Miles Traveled: 35.50) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,828 [INFO] Truck 1 returned to hub at 11:29, total distance traveled: 35.50 miles.
+2025-02-10 10:16:11,828 [INFO] Truck delivered 12 packages.
+2025-02-10 10:16:11,828 [INFO] [(20, datetime.datetime(1900, 1, 1, 9, 12, 40)), (31, datetime.datetime(1900, 1, 1, 9, 18)), (17, datetime.datetime(1900, 1, 1, 9, 20)), (6, datetime.datetime(1900, 1, 1, 9, 24, 20)), (21, datetime.datetime(1900, 1, 1, 9, 35)), (1, datetime.datetime(1900, 1, 1, 9, 41, 20)), (29, datetime.datetime(1900, 1, 1, 9, 50, 40)), (34, datetime.datetime(1900, 1, 1, 10, 7, 20)), (25, datetime.datetime(1900, 1, 1, 10, 18, 40)), (16, datetime.datetime(1900, 1, 1, 10, 30)), (7, datetime.datetime(1900, 1, 1, 10, 46, 40)), (8, datetime.datetime(1900, 1, 1, 11, 4, 20))]
+2025-02-10 10:16:11,828 [INFO] Running deliveries for Truck 2...
+2025-02-10 10:16:11,828 [DEBUG] Before Delivery | Truck 2 Package 14 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 08:07:20
+2025-02-10 10:16:11,828 [INFO] Truck 2 Delivered Package 14 at 08:07 | (Miles Traveled: 1.90) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,828 [DEBUG] Before Delivery | Truck 2 Package 15 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 08:14:00
+2025-02-10 10:16:11,828 [INFO] Truck 2 Delivered Package 15 at 08:14 | (Miles Traveled: 3.90) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 2 Package 19 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 08:31:20
+2025-02-10 10:16:11,829 [INFO] Truck 2 Delivered Package 19 at 08:31 | (Miles Traveled: 9.10) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 2 Package 40 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 08:37:00
+2025-02-10 10:16:11,829 [INFO] Truck 2 Delivered Package 40 at 08:37 | (Miles Traveled: 10.80) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 2 Package 37 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 08:51:40
+2025-02-10 10:16:11,829 [INFO] Truck 2 Delivered Package 37 at 08:51 | (Miles Traveled: 15.20) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 2 Package 30 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 08:55:00
+2025-02-10 10:16:11,829 [INFO] Truck 2 Delivered Package 30 at 08:55 | (Miles Traveled: 16.20) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 2 Package 3 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 08:57:00
+2025-02-10 10:16:11,829 [INFO] Truck 2 Delivered Package 3 at 08:57 | (Miles Traveled: 16.80) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 2 Package 38 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 09:00:20
+2025-02-10 10:16:11,829 [INFO] Truck 2 Delivered Package 38 at 09:00 | (Miles Traveled: 17.80) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 2 Package 13 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 09:11:00
+2025-02-10 10:16:11,829 [INFO] Truck 2 Delivered Package 13 at 09:11 | (Miles Traveled: 21.00) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 2 Package 36 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 09:24:20
+2025-02-10 10:16:11,829 [INFO] Truck 2 Delivered Package 36 at 09:24 | (Miles Traveled: 25.00) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 2 Package 39 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 09:37:40
+2025-02-10 10:16:11,829 [INFO] Truck 2 Delivered Package 39 at 09:37 | (Miles Traveled: 29.00) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 2 Package 18 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 10:06:20
+2025-02-10 10:16:11,829 [INFO] Truck 2 Delivered Package 18 at 10:06 | (Miles Traveled: 37.60) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [INFO] Truck 2 returned to hub at 10:43, total distance traveled: 37.60 miles.
+2025-02-10 10:16:11,829 [INFO] Truck delivered 12 packages.
+2025-02-10 10:16:11,829 [INFO] [(14, datetime.datetime(1900, 1, 1, 8, 7, 20)), (15, datetime.datetime(1900, 1, 1, 8, 14)), (19, datetime.datetime(1900, 1, 1, 8, 31, 20)), (40, datetime.datetime(1900, 1, 1, 8, 37)), (37, datetime.datetime(1900, 1, 1, 8, 51, 40)), (30, datetime.datetime(1900, 1, 1, 8, 55)), (3, datetime.datetime(1900, 1, 1, 8, 57)), (38, datetime.datetime(1900, 1, 1, 9, 0, 20)), (13, datetime.datetime(1900, 1, 1, 9, 11)), (36, datetime.datetime(1900, 1, 1, 9, 24, 20)), (39, datetime.datetime(1900, 1, 1, 9, 37, 40)), (18, datetime.datetime(1900, 1, 1, 10, 6, 20))]
+2025-02-10 10:16:11,829 [INFO] Truck 1 returned at 11:29, Distance: 35.50 miles
+2025-02-10 10:16:11,829 [INFO] Truck 2 returned at 10:43, Distance: 37.60 miles
+2025-02-10 10:16:11,829 [INFO] Truck 3 Preparing to Depart...
 
-2025-02-10 09:56:03,129 [INFO] Address update: Package 9 now has address 410 S State St - was 300 State St 
-2025-02-10 09:56:03,129 [INFO] 
+2025-02-10 10:16:11,829 [INFO] Address update: Package 9 now has address 410 S State St - was 300 State St 
+2025-02-10 10:16:11,829 [INFO] 
 **Package 9 Address Updated: 410 S State St
-2025-02-10 09:56:03,129 [INFO] Optimizing route for Truck 3...
-2025-02-10 09:56:03,130 [DEBUG] Before Delivery | Truck 3 Package 26 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 11:05:40
-2025-02-10 09:56:03,130 [INFO] Truck 3 Delivered Package 26 at 11:05 | (Miles Traveled: 2.40) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,130 [DEBUG] Before Delivery | Truck 3 Package 22 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 11:10:00
-2025-02-10 09:56:03,130 [INFO] Truck 3 Delivered Package 22 at 11:10 | (Miles Traveled: 3.70) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,130 [DEBUG] Before Delivery | Truck 3 Package 24 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 11:20:20
-2025-02-10 09:56:03,130 [INFO] Truck 3 Delivered Package 24 at 11:20 | (Miles Traveled: 6.80) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,130 [DEBUG] Before Delivery | Truck 3 Package 28 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 11:31:40
-2025-02-10 09:56:03,130 [INFO] Truck 3 Delivered Package 28 at 11:31 | (Miles Traveled: 10.20) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,130 [DEBUG] Before Delivery | Truck 3 Package 4 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 11:35:00
-2025-02-10 09:56:03,130 [INFO] Truck 3 Delivered Package 4 at 11:35 | (Miles Traveled: 11.20) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,130 [DEBUG] Before Delivery | Truck 3 Package 32 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 11:40:40
-2025-02-10 09:56:03,130 [INFO] Truck 3 Delivered Package 32 at 11:40 | (Miles Traveled: 12.90) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,130 [DEBUG] Before Delivery | Truck 3 Package 33 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 11:54:00
-2025-02-10 09:56:03,130 [INFO] Truck 3 Delivered Package 33 at 11:54 | (Miles Traveled: 16.90) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,130 [DEBUG] Before Delivery | Truck 3 Package 10 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 12:04:40
-2025-02-10 09:56:03,130 [INFO] Truck 3 Delivered Package 10 at 12:04 | (Miles Traveled: 20.10) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,130 [DEBUG] Before Delivery | Truck 3 Package 9 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 12:10:40
-2025-02-10 09:56:03,130 [INFO] Truck 3 Delivered Package 9 at 12:10 | (Miles Traveled: 21.90) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,130 [DEBUG] Before Delivery | Truck 3 Package 2 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 12:24:20
-2025-02-10 09:56:03,130 [INFO] Truck 3 Delivered Package 2 at 12:24 | (Miles Traveled: 26.00) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,130 [DEBUG] Before Delivery | Truck 3 Package 5 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 12:38:00
-2025-02-10 09:56:03,130 [INFO] Truck 3 Delivered Package 5 at 12:38 | (Miles Traveled: 30.10) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,130 [DEBUG] Before Delivery | Truck 3 Package 27 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 12:54:00
-2025-02-10 09:56:03,130 [INFO] Truck 3 Delivered Package 27 at 12:54 | (Miles Traveled: 34.90) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,130 [DEBUG] Before Delivery | Truck 3 Package 23 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 13:17:00
-2025-02-10 09:56:03,130 [INFO] Truck 3 Delivered Package 23 at 13:17 | (Miles Traveled: 41.80) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,130 [DEBUG] Before Delivery | Truck 3 Package 11 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 13:18:20
-2025-02-10 09:56:03,130 [INFO] Truck 3 Delivered Package 11 at 13:18 | (Miles Traveled: 42.20) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,130 [DEBUG] Before Delivery | Truck 3 Package 35 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 13:42:40
-2025-02-10 09:56:03,130 [INFO] Truck 3 Delivered Package 35 at 13:42 | (Miles Traveled: 49.50) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,130 [DEBUG] Before Delivery | Truck 3 Package 12 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 14:07:20
-2025-02-10 09:56:03,130 [INFO] Truck 3 Delivered Package 12 at 14:07 | (Miles Traveled: 56.90) | Package Status: PackageStatus.DELIVERED
-2025-02-10 09:56:03,130 [INFO] Truck 3 returned to hub at 14:32, total distance traveled: 56.90 miles.
-2025-02-10 09:56:03,130 [INFO] Truck delivered 16 packages.
-2025-02-10 09:56:03,130 [INFO] [(26, datetime.datetime(1900, 1, 1, 11, 5, 40)), (22, datetime.datetime(1900, 1, 1, 11, 10)), (24, datetime.datetime(1900, 1, 1, 11, 20, 20)), (28, datetime.datetime(1900, 1, 1, 11, 31, 40)), (4, datetime.datetime(1900, 1, 1, 11, 35)), (32, datetime.datetime(1900, 1, 1, 11, 40, 40)), (33, datetime.datetime(1900, 1, 1, 11, 54)), (10, datetime.datetime(1900, 1, 1, 12, 4, 40)), (9, datetime.datetime(1900, 1, 1, 12, 10, 40)), (2, datetime.datetime(1900, 1, 1, 12, 24, 20)), (5, datetime.datetime(1900, 1, 1, 12, 38)), (27, datetime.datetime(1900, 1, 1, 12, 54)), (23, datetime.datetime(1900, 1, 1, 13, 17)), (11, datetime.datetime(1900, 1, 1, 13, 18, 20)), (35, datetime.datetime(1900, 1, 1, 13, 42, 40)), (12, datetime.datetime(1900, 1, 1, 14, 7, 20))]
-2025-02-10 09:56:03,130 [INFO] 
-Truck 3 returned at 14:32, Distance: 56.90 miles
+2025-02-10 10:16:11,829 [INFO] Optimizing route for Truck 3...
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 3 Package 24 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 11:06:00
+2025-02-10 10:16:11,829 [INFO] Truck 3 Delivered Package 24 at 11:06 | (Miles Traveled: 2.40) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 3 Package 26 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 11:11:40
+2025-02-10 10:16:11,829 [INFO] Truck 3 Delivered Package 26 at 11:11 | (Miles Traveled: 4.10) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 3 Package 22 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 11:16:00
+2025-02-10 10:16:11,829 [INFO] Truck 3 Delivered Package 22 at 11:16 | (Miles Traveled: 5.40) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 3 Package 33 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 11:36:00
+2025-02-10 10:16:11,829 [INFO] Truck 3 Delivered Package 33 at 11:36 | (Miles Traveled: 11.40) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 3 Package 28 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 11:39:40
+2025-02-10 10:16:11,829 [INFO] Truck 3 Delivered Package 28 at 11:39 | (Miles Traveled: 12.50) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 3 Package 4 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 11:43:00
+2025-02-10 10:16:11,829 [INFO] Truck 3 Delivered Package 4 at 11:43 | (Miles Traveled: 13.50) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 3 Package 32 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 11:48:40
+2025-02-10 10:16:11,829 [INFO] Truck 3 Delivered Package 32 at 11:48 | (Miles Traveled: 15.20) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 3 Package 2 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 12:02:00
+2025-02-10 10:16:11,829 [INFO] Truck 3 Delivered Package 2 at 12:02 | (Miles Traveled: 19.20) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 3 Package 10 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 12:12:40
+2025-02-10 10:16:11,829 [INFO] Truck 3 Delivered Package 10 at 12:12 | (Miles Traveled: 22.40) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 3 Package 5 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 12:18:40
+2025-02-10 10:16:11,829 [INFO] Truck 3 Delivered Package 5 at 12:18 | (Miles Traveled: 24.20) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 3 Package 35 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 12:34:40
+2025-02-10 10:16:11,829 [INFO] Truck 3 Delivered Package 35 at 12:34 | (Miles Traveled: 29.00) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 3 Package 9 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 12:50:40
+2025-02-10 10:16:11,829 [INFO] Truck 3 Delivered Package 9 at 12:50 | (Miles Traveled: 33.80) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 3 Package 27 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 13:06:40
+2025-02-10 10:16:11,829 [INFO] Truck 3 Delivered Package 27 at 13:06 | (Miles Traveled: 38.60) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 3 Package 23 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 13:29:40
+2025-02-10 10:16:11,829 [INFO] Truck 3 Delivered Package 23 at 13:29 | (Miles Traveled: 45.50) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 3 Package 11 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 13:31:00
+2025-02-10 10:16:11,829 [INFO] Truck 3 Delivered Package 11 at 13:31 | (Miles Traveled: 45.90) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [DEBUG] Before Delivery | Truck 3 Package 12 Status: PackageStatus.EN_ROUTE, Delivery Time: 1900-01-01 13:58:00
+2025-02-10 10:16:11,829 [INFO] Truck 3 Delivered Package 12 at 13:58 | (Miles Traveled: 54.00) | Package Status: PackageStatus.DELIVERED
+2025-02-10 10:16:11,829 [INFO] Truck 3 returned to hub at 14:23, total distance traveled: 54.00 miles.
+2025-02-10 10:16:11,829 [INFO] Truck delivered 16 packages.
+2025-02-10 10:16:11,830 [INFO] [(24, datetime.datetime(1900, 1, 1, 11, 6)), (26, datetime.datetime(1900, 1, 1, 11, 11, 40)), (22, datetime.datetime(1900, 1, 1, 11, 16)), (33, datetime.datetime(1900, 1, 1, 11, 36)), (28, datetime.datetime(1900, 1, 1, 11, 39, 40)), (4, datetime.datetime(1900, 1, 1, 11, 43)), (32, datetime.datetime(1900, 1, 1, 11, 48, 40)), (2, datetime.datetime(1900, 1, 1, 12, 2)), (10, datetime.datetime(1900, 1, 1, 12, 12, 40)), (5, datetime.datetime(1900, 1, 1, 12, 18, 40)), (35, datetime.datetime(1900, 1, 1, 12, 34, 40)), (9, datetime.datetime(1900, 1, 1, 12, 50, 40)), (27, datetime.datetime(1900, 1, 1, 13, 6, 40)), (23, datetime.datetime(1900, 1, 1, 13, 29, 40)), (11, datetime.datetime(1900, 1, 1, 13, 31)), (12, datetime.datetime(1900, 1, 1, 13, 58))]
+2025-02-10 10:16:11,830 [INFO] 
+Truck 3 returned at 14:23, Distance: 54.00 miles
