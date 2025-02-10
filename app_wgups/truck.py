@@ -232,12 +232,12 @@ class Truck:
             self.distance_traveled += distance  # Track total miles traveled at this point on route
             self.current_location = package.address  # Truck location set to this address ahead of next move
 
-        # FOR TESTING? Ensure package has a valid delivery time
-        if package.delivery_time is None:  # 🚨 Still None? Try to force re-calculation
-            logging.error(f"ERROR: Package {package.package_id} has no delivery time after calculation!")
+        # FOR TESTING Ensure package has a valid delivery time
+        if package.delivery_time is None:  # Still None? Try to force re-calculation
+            logging.error(f"ERROR:Package {package.package_id} has no delivery time after calculation!")
             package.delivery_time = self.calculate_delivery_time(package, distance_matrix)
 
-        # Final safety check before printing
+        # Final safety check before moving on in implementation
         if package.delivery_time is None:
             logging.error(f"CRITICAL ERROR: Package {package.package_id} still has no delivery time! Using fallback time.")
             package.delivery_time = self.current_time  # Assign the truck's current time as a last resort

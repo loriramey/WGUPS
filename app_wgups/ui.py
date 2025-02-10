@@ -316,7 +316,8 @@ def display_all_package_statuses(hash_table, trucks, check_time):
     for bucket in hash_table.table:
         for _, pkg in bucket:
             status = get_package_status_at_time(pkg, parsed_time)
-            address = "300 State St (Incorrect)" if pkg.package_id == 9 and parsed_time < datetime.strptime("10:20","%H:%M") else pkg.address
+            address = "300 State St (Incorrect)" if (pkg.package_id == 9
+                and parsed_time < datetime.strptime("10:20","%H:%M")) else pkg.address
             if status == "DELIVERED":
                 delivery_time = pkg.delivery_time.strftime('%H:%M')
                 delivery_time_label = "Delivered"
