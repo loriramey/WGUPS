@@ -1,9 +1,11 @@
 # WGUPS Routing Program
 
 ## Project Overview
-This project implements a routing program for the Western Governors University Parcel Service (WGUPS). The goal is to efficiently plan delivery routes for packages, ensuring all deliveries are completed on time while keeping the total mileage under 140 miles for three trucks.
+This project implements a routing program for the Western Governors University Parcel Service (WGUPS). 
+The goal is to efficiently plan delivery routes for packages, ensuring all deliveries are completed on time while keeping the total mileage under 140 miles for three trucks.
 
-The program uses a **Nearest Neighbor Algorithm** combined with a custom hash table to optimize delivery routes and manage package data. It is designed to handle the specific requirements of the Salt Lake City Downtown delivery route but is adaptable for use in other cities.
+The program uses a **Nearest Neighbor Algorithm** combined with a custom hash table to optimize delivery routes and manage package data. 
+It is designed to handle the specific requirements of the Salt Lake City Downtown delivery route but is adaptable for use in other cities.
 
 ## Key Features
 - **Hash Table Implementation:** A custom hash table stores and manages package data.
@@ -31,7 +33,7 @@ The program provides a menu-driven interface with the following options:
 4. Exit the program.
 
 ## Screenshots
-Screenshots of the program output will be stored in the `screenshots/` folder as required by the project.
+Screenshots of the program output will be stored in the `/screenshots` folder as required by the project.
 
 # Sources and References
 - Garg, P. (2024). Basics of hash tables. _Hackerearth_. [https://www.hackerearth.com/practice/data-structures/hash-tables/basics-of-hash-tables/tutorial/](https://www.hackerearth.com/practice/data-structures/hash-tables/basics-of-hash-tables/tutorial/)
