@@ -286,7 +286,6 @@ def lookup_and_print_package_by_ID(package_id, hash_table, parsed_time):
 def display_all_package_statuses(hash_table, trucks, check_time):
     """
     Displays the status of all packages at a specified time.
-
     This function retrieves and prints the status of all packages based on their
     delivery progress at the given time. It also calculates and displays the total
     mileage of all trucks.
@@ -296,7 +295,6 @@ def display_all_package_statuses(hash_table, trucks, check_time):
         trucks (list): A list of Truck objects to retrieve mileage information.
         check_time (str or datetime): The time to check package statuses. Accepts
                                       a string in HH:MM format or a datetime object.
-
     Returns:
         None: The function prints the package statuses and total truck mileage
               to the console.
@@ -329,7 +327,8 @@ def display_all_package_statuses(hash_table, trucks, check_time):
 
             package_status_list.append((
                 pkg.package_id,
-                f"Package {pkg.package_id}: {status_colored} on Truck {truck_number}; {delivery_time_label}: {delivery_time} to {address}"
+                f"Package {pkg.package_id}: {status_colored} on Truck {truck_number}; "
+                f"{delivery_time_label}: {delivery_time} | Deadline: {pkg.deadline.strftime('%H:%M')} | Address: {address}"
             ))
 
     package_status_list.sort(key=lambda x: x[0] )
